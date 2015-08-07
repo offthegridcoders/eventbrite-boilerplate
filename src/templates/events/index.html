@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  @@include('../../src/partials/_head.html', {"title": "Plantnite"})
+  <body>
+    <div class="body-wrapper">
+      @@include('../../src/partials/_navbar.html')
+      <section class="events-wrapper">
+
+      </section>
+      @@include('../../src/partials/_footer.html')
+      @@include('../../src/partials/_scripts.html')
+
+      <script src="js/eventbrite.js" type="text/javascript"></script>
+
+      <script>
+
+        var params =  {
+          expand: 'venue',
+          sort_by: 'date'
+        };
+
+        var queryUrl = 'https://www.eventbriteapi.com/v3/events/search/?token=TE3CTSXN4VRNAQR2YHXR&user.id=142688710831&' + $.param(params);
+
+        loadAllEvents(queryUrl);
+      </script>
+      
+    </div>
+  </body>
+</html>

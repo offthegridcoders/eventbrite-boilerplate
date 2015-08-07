@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.body-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+div,
+article,
+section,
+ul,
+li,
+table,
+tr,
+td,
+form {
+  margin: 0;
+  padding: 0;
+}

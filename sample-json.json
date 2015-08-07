@@ -1,0 +1,71 @@
+{
+  "pagination": {
+    "object_count": 8,
+    "page_number": 1,
+    "page_size": 50,
+    "page_count": 1
+    },
+  "events": [
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/events/17659525115/",
+      "name": {
+        "text": "Create a Terrarium: Open Succulent Garden",
+        "html": "Create a Terrarium: Open Succulent Garden"
+      },
+      "description": {
+        "text": "Drink wine and create your own succulent dish garden! \nDuring this social event our master botanist will guide you through the creation of your very own dish of succulents. It's DIY but with expert help! We'll provide all the supplies you'll need to create a living masterpiece, including plants, container, and decorative accessories to make it a one of a kind creation! \n \n\u00a0\u00a0 \nAbout Plant Nite: \nClasping a trowel in one hand and a cocktail in the other, attendees at this social Plant Nite event mix step-by-step guidance of local master gardner with a little inspiration from a glass of wine. At various hotspot bars around the city, non-judgmental landscape artists will provide everything you and your friends need\u2014including plants, dirt, containers, aprons and other tools of the trade\u2014to produce stunning (and slightly drunken) living sculptures. \n\nTop 40 music will be played during the night.\u00a0This is a social event and not a class.\nFood and beverages available for purchase from the restaurant at an additional charge the night of the event\nEvents are 21+ (Sorry, Adults only)\n\n\u00a0",
+        "html": "<P STYLE=\"line-height: normal; margin: 0px; padding: 0px 0px 8px; color: #666666; letter-spacing: 0.5px; text-align: center;\"><SPAN STYLE=\"font-family: arial, helvetica, sans-serif; font-size: small;\">Drink wine and create your own succulent dish garden!<\/SPAN><\/P>\r\n<P STYLE=\"line-height: normal; margin: 0px; padding: 0px 0px 8px; color: #666666; letter-spacing: 0.5px; text-align: center;\"><SPAN STYLE=\"font-family: arial, helvetica, sans-serif; font-size: small;\">During this social event our master botanist will guide you through the creation of your very own dish of succulents. It's DIY but with expert help! We'll provide all the supplies you'll need to create a living masterpiece, including plants, container, and decorative accessories to make it a one of a kind creation!<\/SPAN><\/P>\r\n<P STYLE=\"line-height: normal; margin: 0px; padding: 0px 0px 8px; color: #666666; letter-spacing: 0.5px; text-align: center;\"><SPAN STYLE=\"font-family: arial, helvetica, sans-serif; font-size: small;\"><IMG SRC=\"https://cdn.evbuc.com/eventlogos/141696833/112280218258187375375624940027808200097092n.jpg\" ALT=\"\" WIDTH=\"450\"><\/SPAN><\/P>\r\n<P STYLE=\"line-height: normal; margin: 0px; padding: 0px 0px 8px; color: #666666; letter-spacing: 0.5px; text-align: center;\"><SPAN STYLE=\"font-family: arial, helvetica, sans-serif; font-size: small;\">\u00a0<\/SPAN><SPAN STYLE=\"font-family: arial, helvetica, sans-serif; font-size: small;\">\u00a0<\/SPAN><\/P>\r\n<P STYLE=\"line-height: normal; margin: 0px; padding: 0px 0px 8px; color: #666666; letter-spacing: 0.5px;\"><SPAN STYLE=\"font-family: arial, helvetica, sans-serif; font-size: small;\"><STRONG><SPAN STYLE=\"color: #333333; line-height: 20px;\">About Plant Nite:<\/SPAN><\/STRONG><\/SPAN><\/P>\r\n<P STYLE=\"line-height: normal; margin: 0px; padding: 0px 0px 8px; color: #666666; letter-spacing: 0.5px;\"><SPAN STYLE=\"color: #333333; font-family: arial, helvetica, sans-serif; font-size: small; line-height: 20px;\">Clasping a trowel in one hand and a cocktail in the other, attendees at this social Plant Nite event mix step-by-step guidance of local master gardner with a little inspiration from a glass of wine. At various hotspot bars around the city, non-judgmental landscape artists will provide everything you and your friends need\u2014including plants, dirt, containers, aprons and other tools of the trade\u2014to produce stunning (and slightly drunken) living sculptures.<\/SPAN><\/P>\r\n<UL>\r\n<LI STYLE=\"color: #666666; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.1999998092651px; letter-spacing: 0.5px; line-height: 15.8400001525879px;\"><SPAN STYLE=\"font-size: small; font-family: arial, helvetica, sans-serif;\"><SPAN STYLE=\"color: #000000;\">Top 40 music will be played during the night.\u00a0<\/SPAN><SPAN STYLE=\"color: #000000;\">This is a social event and not a class.<\/SPAN><\/SPAN><\/LI>\r\n<LI STYLE=\"color: #666666; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.1999998092651px; letter-spacing: 0.5px; line-height: 15.8400001525879px;\"><SPAN STYLE=\"color: #000000; font-family: arial, helvetica, sans-serif; font-size: small;\">Food and beverages available for purchase from the restaurant at an additional charge the night of the event<\/SPAN><\/LI>\r\n<LI STYLE=\"color: #666666; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.1999998092651px; letter-spacing: 0.5px; line-height: 15.8400001525879px;\"><SPAN STYLE=\"color: #000000; font-family: arial, helvetica, sans-serif; text-align: center; font-size: small;\">Events are 21+ (Sorry, Adults only)<\/SPAN><\/LI>\r\n<\/UL>\r\n<DIV STYLE=\"text-align: center;\">\u00a0<\/DIV>"
+      },
+      "id": "17659525115",
+      "url": "http://www.eventbrite.com/e/create-a-terrarium-open-succulent-garden-tickets-17659525115?aff=ebapi",
+      "start": {
+        "timezone": "America/New_York",
+        "local": "2015-08-11T19:00:00",
+        "utc": "2015-08-11T23:00:00Z"
+      },
+      "end": {
+        "timezone": "America/New_York",
+        "local": "2015-08-11T20:30:00",
+        "utc": "2015-08-12T00:30:00Z"
+      },
+      "created": "2015-07-06T18:25:31Z",
+      "changed": "2015-08-05T14:24:32Z",
+      "capacity": 40,
+      "status": "live",
+      "currency": "USD",
+      "shareable": true,
+      "online_event": false,
+      "tx_time_limit": 480,
+      "logo_id": "14187567",
+      "organizer_id": "8159168157",
+      "venue_id": "10898285",
+      "category_id": "117",
+      "subcategory_id": "17003",
+      "format_id": "11",
+      "logo": {
+        "id": "14187567",
+        "url": "https://img.evbuc.com/https%3A%2F%2Fimg.evbuc.com%2Fhttp%253A%252F%252Fcdn.evbuc.com%252Fimages%252F14187567%252F142688710831%252F1%252Foriginal.jpg%3Frect%3D0%252C187%252C750%252C375%26s%3D714bdc9f20567edbabd94705f804572e?h=200&w=450&s=b43526bfe64485e74f87797aa07299f1",
+        "aspect_ratio": "2",
+        "edge_color": null,
+        "edge_color_set": true
+      },
+      "venue": {
+        "address": {
+          "address_1": "160 Milk Street",
+          "address_2": null,
+          "city": "Boston",
+          "region": "MA",
+          "postal_code": "02109",
+          "country": "US",
+          "latitude": 42.358714,
+          "longitude": -71.05272400000001
+        },
+        "resource_uri": "https://www.eventbriteapi.com/v3/venues/10898285/",
+        "id": "10898285",
+        "name": "Central Wharf Co.",
+        "latitude": "42.358714",
+        "longitude": "-71.05272400000001"
+      }
+    }
+  ]
+}
