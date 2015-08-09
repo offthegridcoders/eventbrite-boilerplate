@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-  @@include('../src/partials/_head.html', {"title": "Eventbrite Boilerplate"})
+  @@include('../src/partials/_head.html', {"title": "OTG Eventbrite Boilerplate"})
   <body>
-    <div class="body-wrapper">
       @@include('../src/partials/_navbar.html')
-      @@include('../src/partials/_header.html')
-      <section class="homepage-content">
-        <h1>Lorem Ipsum Dolor Sit Amet</h1>
-        <article>
+      @@include('../src/partials/_sidebar.html')
 
-        </article>
-      </section>
-      @@include('../src/partials/_footer.html')
-      @@include('../src/partials/_scripts.html')
-    </div>
+            <!-- LOADING EVENTS #loadingEvents -->
+              <div id="loading" class="loading-events">
+                <i class="fa fa-spinner fa-pulse"></i><p>Searching...</p>
+              </div>
+            <!-- MAIN EVENTS LIST -->
+              <section id="eventListSection" class="main-events-section"></section>
+
+            <!-- PAGINATION -->
+              <div id="pagination" class="pagination"></div>
+
+            @@include('../src/partials/_footer.html')
+            @@include('../src/partials/_scripts.html')
   </body>
 </html>

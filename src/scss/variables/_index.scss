@@ -1,5 +1,18 @@
-$primary-color: #daa933;
-$secondary-color: #4abd40;
-$link-color: #05b4d0;
 
-$primary-font: 'Oswald', sans-serif;
+// COLORS
+$darkest-gray: #444;
+$blue: #2C8DE7;
+$dark-blue: darken($blue, 20%);
+$darkest-blue: darken($blue, 35%);
+$lightest-blue: lighten($blue, 40%);
+
+// MAIN COLORS
+$primary-color: $darkest-gray;
+$secondary-color:  $darkest-gray;
+$link-color: $dark-blue;
+
+// PRIMARY FONT
+$primary-font: 'Source Sans Pro', sans-serif;
+
+// NAVBAR
+$nav-a-color: #2C8DE7;

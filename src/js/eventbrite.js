@@ -1,216 +1,138 @@
+// var timeFormat = 'hh:mm a';
+// time = jQuery.format.date(str, timeFormat);
 
-//var ebUrl = 'https://www.eventbriteapi.com/v3/events/search/?token=' + ebPublicToken + '&user.id=142688710831&expand=venue&sort_by=date'
 
-// EVENTBRITE API
-  var listContainer = $('#events');
-  var singleContainer = $('#event');
+  var EB_URL = 'https://www.eventbriteapi.com/v3';
+  var EB_TOKEN = 'OUZ32QGNYHRKXKKDBMTA';
 
-  var loadingEventsContainer = $('#loadingEvents');
-  var noEventsFoundContainer = $('#noEventsFound');
 
-  function formatDate(str) {
-    var formattedDate = new Date(str);
-    var d = formattedDate.getDate();
-    var m =  formattedDate.getMonth();
-    m += 1;  // JavaScript months are 0-11
-    var y = formattedDate.getFullYear();
-    return m + "/" + d + "/" + y;
-  }
+  // SERVICES
+    // Events Service
+      var eventsService = {
+        list: function(params, userId) {
+          var apiUrl = EB_URL + '/events/search/' + '?token=' + EB_TOKEN;
+          if (params) apiUrl += '&' + $.param(params);
+          if (userId) apiUrl += '&user.id=' + userId;
+          if (byLocation) apiUrl += '&location.address=' + byLocation;
 
-  function formatTime(str) {
-    console.log(str);
-
-    var timeFormat = 'hh:mm a';
-
-    time = jQuery.format.date(str, timeFormat);
-
-    console.log(time);
-
-    return time;
-  }
-
-  function loadAllEvents(url) {
-    loadingEventsContainer.show();
-
-    $.ajax({
-      dataType: "json",
-      url: url,
-      type: 'GET',
-      data: '',
-      success: function(res) {
-        loadingEventsContainer.hide();
-        if (events.length == 0) {
-          noEventsFoundContainer.show();
-        } else {
-         noEventsFoundContainer.hide();
-         createListMarkup(res.events);
+          return $.ajax({
+            dataType: 'json',
+            url: apiUrl,
+            type: 'GET'
+          });
+        },
+        get: function(id, params) {
+          var apiUrl = EB_URL + '/events/' + id + '/?token=' + EB_TOKEN;
+          if (params) apiUrl += '&' + $.param(params);
+          return $.ajax({
+            dataType: 'json',
+            url: apiUrl,
+            type: 'GET'
+          });
+        },
+        post: function() {
+          return null;
+        },
+        update: function() {
+          return null;
+        },
+        remove: function() {
+          return null;
         }
-      },
-      error: function(res) {
-        loadingEventsContainer.hide();
-        noEventsFoundContainer.show();
       }
-    });
+
+
+  // MAIN APP
+  var params =  {
+    expand: 'venue',
+    sort_by: 'date',
+    page: 1
   };
 
-  function loadSingleEvent(url) {
-    $.ajax({
-      dataType: "json",
-      url: url,
-      type: 'GET',
-      data: '',
-      success: function(res) {
-        loadVenueInformation(res.venue_id, res)
-      }
-    });
-  };
+  var userId = '142688710831'; // example user.id
+  var eventId = '17659525115'; // example event id
 
-  function loadVenueInformation(venueId, event) {
-    var url = 'https://www.eventbriteapi.com/v3/venues/' + venueId + '/?token=C4C3HV4MMSZ3WJVUZSHZ';
-    $.ajax({
-      dataType: "json",
-      url: url,
-      type: 'GET',
-      data: '',
-      success: function(res) {
-        createDetailMarkup(res, event);
-      }
-    });
-  };
+  var EventsElm = $('#eventListSection');
+  var loadingElm = $('#loading');
+  var SortByOption = $('#sortByOption');
+  var NearLocation = $('#nearLocation');
+  var SearchBtn = $('#searchBtn');
 
-  function createListMarkup(events) {
-    var ul = $('<ul/>').addClass('main-event-ul'),
-        li = $('<li/>'),
-        h2 = $('<h1/>'),
-        p = $('<p/>'),
-        img = $('<img/>'),
-        date = $('<date/>'),
-        a = $('<a/>'),
-        button = $('<button/>');
-
-    $.each(events, function( index, value ) {
-      var newItemHtml = li.clone();
-
-      // add logo
-      img.clone()
-         .attr('src', value.logo.url)
-         .addClass('logo')
-         .appendTo(newItemHtml);
-
-       // add buy tickets button
-       a.clone()
-       .attr('href', value.url)
-       .attr('target', '_new')
-       .addClass('button-href')
-       .append(button.clone()
-                     .text('buy tickets')
-                     .addClass('buy-tickets-button btn-default'))
-       .appendTo(newItemHtml);
-
-      // add date
-
-      var eventTimeRange = formatDate(value.start.local) + '  ' + formatTime(value.start.local) + ' - ' + formatTime(value.end.local);
-      date.clone()
-          .text(eventTimeRange)
-          .appendTo(newItemHtml);
-
-      // add title
-      h2.clone()
-        .text(value.name.text)
-        .addClass('title')
-        .appendTo(newItemHtml);
-
-      // add address
-      var addressHTML = '<a target="_new" href="http://maps.google.com?q=' + value.venue.address.address_1 + ', ' + value.venue.address.city + ', ' + value.venue.address.region + ' ' + value.venue.address.postal_code + '"><i class="fa fa-map-marker"></i></a> ' + value.venue.address.address_1 + ', ' + value.venue.address.city + ', ' + value.venue.address.region + ' ' + value.venue.address.postal_code;
-      p.clone()
-        .html(addressHTML)
-        .addClass('venue-address')
-        .appendTo(newItemHtml);
-
-      // add view details link
-      a.clone()
-        .text('See Details')
-        .attr('href', '/event/?id=' + value.id)
-        .addClass('details')
-        .appendTo(newItemHtml);
-
-      // append full item to main list
-      newItemHtml.appendTo(ul);
-    });
-
-    ul.appendTo(listContainer).addClass('main-event-ul');
+  $.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
   }
 
-  function createDetailMarkup(venue, event) {
-    var h2 = $('<h2/>'),
-        p = $('<p/>'),
-        a = $('<a/>'),
-        date = $('<date/>'),
-        button = $('<button/>');
-
-    $('#eventTitle').text(event.name.text) // sets header title
-
-
-    // event description
-    var eventHTML = '<h2>Event Description</h2>' + event.description.html;
-
-    $('#eventDescription').html(eventHTML);
-    var detailsBlock = $('#eventDetails');
-
-    // section title
-    h2.clone()
-        .text('Event Details')
-        .appendTo(detailsBlock);
-
-    // add date
-    date.clone()
-        .text(formatDate(event.start.local))
-        .addClass('event-date')
-        .appendTo(detailsBlock);
-
-    // add time range
-    var eventTimeRange = formatTime(event.start.local) + ' - ' + formatTime(event.end.local);
-
-    p.clone()
-        .text(eventTimeRange)
-        .addClass('event-time')
-        .appendTo(detailsBlock);
-
-    // add venue name
-    p.clone()
-      .addClass('venue-name')
-      .text(venue.name)
-      .appendTo(detailsBlock);
-
-    // add venue address
-    var addressHTML = '<a target="_new" href="http://maps.google.com?q=' + venue.address.address_1 + ', ' + venue.address.city + ', ' + venue.address.region + ' ' + venue.address.postal_code + '"><i class="fa fa-map-marker"></i></a> ' + venue.address.address_1 + ', ' + venue.address.city + ', ' + venue.address.region + ' ' + venue.address.postal_code;
-
-    p.clone()
-      .html(addressHTML)
-      .addClass('venue-address')
-      .appendTo(detailsBlock);
-
-    // add buy tickets button
-    a.clone()
-      .attr('href', event.url)
-      .attr('target', '_new')
-      .addClass('button-href')
-      .append(button.clone()
-                    .text('buy tickets')
-                    .addClass('buy-tickets-button btn-default'))
-      .appendTo(detailsBlock);
-
-    // back to events link
-    a.clone()
-      .attr('href', '/events')
-      .addClass('back-to-events-a')
-      .html('<i class="fa fa-caret-left"></i> back to events')
-      .appendTo(detailsBlock);
+  if($.urlParam('page')) {
+    params.page = $.urlParam('page');
+    if (params.page < 0) {
+      params.page = 0;
+      window.location.replace('/index.html?location.address=' + NearLocation.val() + '&' + $.param(params));
+    }
   };
 
-  function initAllEvents() {
-    loadingEventsContainer.hide();
-    noEventsFoundContainer.hide();
+  if($.urlParam('sort_by')) {
+    SortByOption.val($.urlParam('sort_by'));
+    params.sort_by = $.urlParam('sort_by');
+  };
+
+  if($.urlParam('location.address')) {
+    var byLocation = $.urlParam('location.address');
+    NearLocation.val(byLocation);
+  };
+
+
+
+
+  function clearEvents() {
+    EventsElm.empty();
+  };
+
+  function createListEventsMarkup(res) {
+    clearEvents();
+    var ul = $('<ul/>').addClass('main-events-list').appendTo(EventsElm);
+    var li = $('<li/>').addClass('single-event');
+
+    for (var i=0; i<res.events.length; i++) {
+      $(ul).append(li.clone().text(res.events[i].name.text));
+    }
   }
 
-  initAllEvents();
+  function listEvents() {
+    clearEvents()
+    loadingElm.show();
+    return eventsService.list(params)
+      .then(function(res) {
+        console.log(res);
+        // todo: if events is empty....
+        loadingElm.hide();
+        createListEventsMarkup(res);
+        setPagination(res.pagination);
+      });
+  };
+
+  function listEvent() {
+    loadingElm.show();
+    eventsService.get(eventId)
+      .then(function(res) {
+        loadingElm.hide();
+      });
+  };
+
+  // UPDATES OPTIONS
+    // Sort By
+    SortByOption.change(function(e) {
+      params.sort_by = e.target.value;
+      window.location.replace('/index.html?' + $.param(params));
+    });
+    // Location Near
+    SearchBtn.click(function(e) {
+      window.location.replace('/index.html?location.address=' + NearLocation.val() + '&' + $.param(params));
+    });
+
+listEvents();

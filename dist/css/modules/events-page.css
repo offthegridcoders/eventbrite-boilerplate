@@ -1,0 +1,18 @@
+.loading-events {
+  width: 100%;
+  padding: 50px;
+  text-align: center; }
+  .loading-events i {
+    font-size: 40px; }
+  .loading-events p {
+    font-size: 16px; }
+
+.main-events-section {
+  padding: 30px; }
+
+.main-events-list {
+  box-shadow: 2px 2px 9px #ccc; }
+  .main-events-list li {
+    padding: 5px 10px; }
+  .main-events-list li:nth-child(odd) {
+    background-color: #eee; }

@@ -1,5 +1,9 @@
 @import 'variables/index';
+
 @import 'defaults/index';
 @import 'modules/navbar/index';
 @import 'modules/header/index';
+@import 'modules/sidebar/sidebar';
 @import 'modules/footer/index';
+@import 'modules/events-page';
+@import 'modules/pagination';

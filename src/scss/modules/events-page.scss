@@ -1,0 +1,29 @@
+.loading-events {
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+
+  i {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+.main-events-section {
+  padding: 30px;
+}
+
+.main-events-list {
+  box-shadow: 2px 2px 9px #ccc;
+
+  li {
+    padding: 5px 10px;
+  }
+
+  li:nth-child(odd) {
+    background-color: #eee;
+  }
+}
