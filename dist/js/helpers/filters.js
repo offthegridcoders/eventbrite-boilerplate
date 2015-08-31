@@ -6,12 +6,12 @@
   var SortByOption = $('#sortByOption');
   var CityFilter = $('#CityFilter');
   var CountryFilter = $('#CountryFilter');
-  var StateFilter = $('#StateFilter');
+  var RegionFilter = $('#RegionFilter');
   var cityFilterItem = $('#cityFilterItem');
-  var stateFilterItem = $('#stateFilterItem');
+  var regionFilterItem = $('#regionFilterItem');
 
   cityFilterItem.hide();
-  stateFilterItem.hide();
+  regionFilterItem.hide();
 
   function refreshPage() {
     var url = window.location.pathname + '?' + $.param(params);
@@ -52,19 +52,19 @@
       CountryFilter.val($.urlParam('venue.country'));
       if ($.urlParam('venue.country') == 'US') {
         cityFilterItem.show();
-        stateFilterItem.show();
+        regionFilterItem.show();
       } else {
         cityFilterItem.hide();
-        stateFilterItem.hide();
+        regionFilterItem.hide();
         delete params['venue.city'];
-        delete params['venue.state'];
+        delete params['venue.region'];
       }
     };
 
-    if($.urlParam('venue.state')) {
-      var state = {'venue.state': $.urlParam('venue.state')};
-      params = $.extend({}, state, params);
-      StateFilter.val($.urlParam('venue.state'));
+    if($.urlParam('venue.region')) {
+      var region = {'venue.region': $.urlParam('venue.region')};
+      params = $.extend({}, region, params);
+      RegionFilter.val($.urlParam('venue.region'));
     };
 
   // *******************
@@ -95,13 +95,13 @@
     });
 
   // *******************
-  // STATE
+  // REGION
   // *******************
-    StateFilter.change(function(e) {
-      delete params['venue.state'];
+    RegionFilter.change(function(e) {
+      delete params['venue.region'];
       if (e.target.value) {
-        var state = {'venue.state': e.target.value};
-        params = $.extend(state, params);
+        var region = {'venue.region': e.target.value};
+        params = $.extend(region, params);
       }
     });
 
@@ -115,12 +115,12 @@
         params = $.extend(country, params);
         if (e.target.value == 'US') {
           cityFilterItem.show();
-          stateFilterItem.show();
+          regionFilterItem.show();
         } else {
           cityFilterItem.hide();
-          stateFilterItem.hide();
+          regionFilterItem.hide();
           delete params['venue.city'];
-          delete params['venue.state'];
+          delete params['venue.region'];
         }
       }
     });
