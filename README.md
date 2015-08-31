@@ -1,5 +1,4 @@
-# Sabine River Partners, LLC
-## Main Marketing Site
+# jQuery - EventBrite Boilerplate
 
 ### External Links
 [EventBrite API](https://www.eventbrite.com/developer/v3/endpoints/)
