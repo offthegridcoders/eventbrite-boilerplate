@@ -90,7 +90,7 @@ gulp.task('build', ['make', 'image-compress'], function() {});
     'useref',
     'img-copy',
     'doc-copy',
-    'compress'], function() {
+    'js-copy'], function() {
     return gulp.src(paths.dist.html)
     .pipe(fileinclude())
     .pipe(gulp.dest(paths.dist.base));
@@ -124,6 +124,11 @@ gulp.task('build', ['make', 'image-compress'], function() {});
   gulp.task('doc-copy', ['clear'], function() {
     return gulp.src(paths.src.docs)
     .pipe(gulp.dest(paths.dist.docs));
+  })
+
+  gulp.task('js-copy', ['clear'], function() {
+    return gulp.src(paths.src.js)
+    .pipe(gulp.dest(paths.dist.js));
   })
 
   gulp.task('compress', ['useref'], function() {

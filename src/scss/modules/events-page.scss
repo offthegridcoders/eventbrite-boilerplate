@@ -1,3 +1,19 @@
+.content-wrapper {
+  position: relative;
+  min-height: 100%;
+
+  .fa-list-ul {
+    position: fixed;
+    top: 10px;
+    cursor: pointer;
+    left: 10px;
+    font-size: 30px;
+    background-color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+  }
+}
+
 .loading-events {
   width: 100%;
   padding: 50px;

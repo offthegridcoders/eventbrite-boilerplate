@@ -1,7 +1,9 @@
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@@title</title>
+  <title>OTG Eventbrite Boilerplate</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -37,3 +39,37 @@
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
+
+  <body>
+      <nav class="main-nav">
+  <p><i class="fa fa-calendar-check-o"></i>OTG Eventbrite Boilerplate</p>
+  <ul>
+    <li><a href="/">home</a></li>
+    <li><a href="/events">events</a></li>
+  </ul>
+</nav>
+
+      <div class="content-wrapper event-page">
+
+        <!-- LOADING EVENTS #loadingEvents -->
+          <div id="loading" class="loading-events">
+            <i class="fa fa-spinner fa-pulse"></i><p>Searching...</p>
+          </div>
+
+        <!-- MAIN EVENTS LIST -->
+          <section id="eventSection" class="main-events-section"></section>
+
+        
+      </div>
+
+      <!-- MAIN SCRIPTS -->
+        <script src="js/constants.js"></script>
+        <script src="js/inits.js"></script>
+
+      <!-- SERVICES -->
+        <script src="js/services/events.js" type="text/javascript"></script>
+
+      <!-- CONTROLLERS -->
+        <script src="js/controllers/event.js" type="text/javascript"></script>
+  </body>
+</html>

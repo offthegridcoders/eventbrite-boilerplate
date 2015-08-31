@@ -81,7 +81,6 @@
             var tmpParams = jQuery.extend(true, {}, params);
                 tmpParams.page = 1;
             var newUrl = '/index.html?' + $.param(tmpParams);
-            if (byLocation) newUrl += '&location.address=' + byLocation;
             newpage.text(1).attr('href', newUrl).addClass('first-page');
           }
           PaginationElm.append(newpage);
@@ -94,7 +93,6 @@
           if(pagination.page_number != i) {
             newpage = a.clone();
             var newUrl = '/index.html?' + $.param(tmpParams);
-            if (byLocation) newUrl += '&location.address=' + byLocation;
             newpage.text(i).attr('href', newUrl);
           } else {
             var newpage = span.clone();
@@ -109,7 +107,6 @@
           var tmpParams = jQuery.extend(true, {}, params);
               tmpParams.page = pagination.page_count;
           var newUrl = '/index.html?' + $.param(tmpParams);
-          if (byLocation) newUrl += '&location.address=' + byLocation;
 
           if (pagination.page_number == pagination.page_count) {
             newpage = span.clone().text(pagination.page_count).addClass('last-page');

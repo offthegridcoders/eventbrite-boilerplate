@@ -1,0 +1,4 @@
+// MAIN APP
+
+  listEvents();
+  getCategories();

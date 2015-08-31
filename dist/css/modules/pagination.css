@@ -1,6 +1,7 @@
 .pagination {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  padding-bottom: 50px; }
   .pagination a,
   .pagination span {
     display: inline-block;
