@@ -1,7 +1,9 @@
 # jQuery - EventBrite Boilerplate
 
 ### External Links
+
 [EventBrite API](https://www.eventbrite.com/developer/v3/endpoints/)
+
 [jQuery Date Format](https://github.com/phstc/jquery-dateFormat)
 
 #### Contact
