@@ -42,11 +42,6 @@
       newCat.text(newCategoryName);
       newCat.appendTo(CategoriesElm);
     }
-
-    if($.urlParam('categories')) {
-      CategoriesElm.val($.urlParam('categories'));
-      params.categories = $.urlParam('categories');
-    };
   };
 
   function getCategories() {

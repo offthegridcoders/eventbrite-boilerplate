@@ -2,7 +2,16 @@
 // FILTERS
 // *******************
 
+  var SearchBtn = $('#search');
   var SortByOption = $('#sortByOption');
+  var CityFilter = $('#CityFilter');
+  var CountryFilter = $('#CountryFilter');
+  var StateFilter = $('#StateFilter');
+  var cityFilterItem = $('#cityFilterItem');
+  var stateFilterItem = $('#stateFilterItem');
+
+  cityFilterItem.hide();
+  stateFilterItem.hide();
 
   function refreshPage() {
     var url = window.location.pathname + '?' + $.param(params);
@@ -26,10 +35,41 @@
       params.sort_by = $.urlParam('sort_by');
     };
 
+    if($.urlParam('categories')) {
+      CategoriesElm.val($.urlParam('categories'));
+      params.categories = $.urlParam('categories');
+    };
+
+    if($.urlParam('venue.city')) {
+      var city = {'venue.city': $.urlParam('venue.city')};
+      params = $.extend({}, city, params);
+      CityFilter.val($.urlParam('venue.city'));
+    };
+
+    if($.urlParam('venue.country')) {
+      var country = {'venue.country': $.urlParam('venue.country')};
+      params = $.extend({}, country, params);
+      CountryFilter.val($.urlParam('venue.country'));
+      if ($.urlParam('venue.country') == 'US') {
+        cityFilterItem.show();
+        stateFilterItem.show();
+      } else {
+        cityFilterItem.hide();
+        stateFilterItem.hide();
+        delete params['venue.city'];
+        delete params['venue.state'];
+      }
+    };
+
+    if($.urlParam('venue.state')) {
+      var state = {'venue.state': $.urlParam('venue.state')};
+      params = $.extend({}, state, params);
+      StateFilter.val($.urlParam('venue.state'));
+    };
+
   // *******************
   // SORT_BY
   // *******************
-
     SortByOption.change(function(e) {
       params.sort_by = e.target.value;
       refreshPage();
@@ -40,5 +80,54 @@
   // *******************
     CategoriesElm.change(function(e) {
       params.categories = e.target.value;
+      refreshPage();
+    });
+
+  // *******************
+  // CITY
+  // *******************
+    CityFilter.keyup(function(e) {
+      delete params['venue.city'];
+      if (e.target.value) {
+        var city = {'venue.city': e.target.value};
+        params = $.extend(city, params);
+      }
+    });
+
+  // *******************
+  // STATE
+  // *******************
+    StateFilter.change(function(e) {
+      delete params['venue.state'];
+      if (e.target.value) {
+        var state = {'venue.state': e.target.value};
+        params = $.extend(state, params);
+      }
+    });
+
+  // *******************
+  // COUNTRY
+  // *******************
+    CountryFilter.change(function(e) {
+      delete params['venue.country'];
+      if (e.target.value) {
+        var country = {'venue.country': e.target.value};
+        params = $.extend(country, params);
+        if (e.target.value == 'US') {
+          cityFilterItem.show();
+          stateFilterItem.show();
+        } else {
+          cityFilterItem.hide();
+          stateFilterItem.hide();
+          delete params['venue.city'];
+          delete params['venue.state'];
+        }
+      }
+    });
+
+  // *******************
+  // SEARCH
+  // *******************
+    SearchBtn.click(function(e) {
       refreshPage();
     });
